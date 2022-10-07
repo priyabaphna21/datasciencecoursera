@@ -1,0 +1,27 @@
+---
+title: "plotly"
+author: "Priya"
+date: "07/10/2022"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+library(shiny)
+library(plotly)
+
+head(iris)
+
+# left
+plotly(iris, x = ~Sepal.Length, y = ~Sepal.Width , type="scatter", mode = "markers", 
+        marker=list( size=20 , opacity=0.7), color = ~Petal.Length)
+ 
+# right
+plotly(iris, x = ~Petal.Length, y = ~Petal.Width , type="scatter", mode = "markers", 
+        marker=list( size=20 , opacity=0.7), color = ~Sepal.Length , 
+        colors=c("blueviolet","lawngreen") )
